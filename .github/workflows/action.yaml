@@ -25,7 +25,7 @@ jobs:
             cd function
             zip -r ../${{ github.sha }}.zip .
       - name:  Archieve artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: zipped-bundle
           path: ${{ github.sha }}.zip
@@ -34,7 +34,7 @@ jobs:
     needs: build
     steps:
       - name: Download Artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: zipped-bundle
       - name: Configure AWS Credentials
